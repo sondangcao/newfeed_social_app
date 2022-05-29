@@ -33,19 +33,104 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double customWidth = MediaQuery.of(context).size.width;
+    double customHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: Center(
-          child: Row(
+        body: SafeArea(
+            child: Stack(fit: StackFit.expand, children: [
+          Row(
             children: <Widget>[
               Expanded(
                 flex: 1,
                 child: Container(
-                  color: Colors.white,
-                  child: Expanded(
-                    flex: 1,
-                    child: Container(color: Colors.amber),
-                  ),
-                ),
+                    color: Colors.white,
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: Column(
+                          children: [
+                            Expanded(
+                                flex: 1,
+                                child: Container(
+                                  color: Colors.blue,
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                          flex: 1,
+                                          child: Column(
+                                            children: [
+                                              Expanded(
+                                                  flex: 1,
+                                                  child: Container(
+                                                    color: Colors.grey,
+                                                  )),
+                                              Expanded(
+                                                  flex: 1,
+                                                  child: Container(
+                                                    color: Colors.orange,
+                                                  )),
+                                              Expanded(
+                                                  flex: 1,
+                                                  child: Container(
+                                                    color: Colors.blue,
+                                                    width: 100,
+                                                  )),
+                                              Expanded(
+                                                  flex: 1,
+                                                  child: Container(
+                                                    color: Colors.pink,
+                                                    width: 100,
+                                                  )),
+                                              Row(
+                                                children: [
+                                                  Container(
+                                                      color: Colors.black26),
+                                                ],
+                                              )
+                                            ],
+                                          )),
+                                      Expanded(
+                                          flex: 2,
+                                          child: Column(
+                                            children: [
+                                              Expanded(
+                                                flex: 3,
+                                                child: Container(
+                                                    color: Colors.blueGrey),
+                                              ),
+                                              Expanded(
+                                                flex: 1,
+                                                child: Row(
+                                                  children: [
+                                                    Expanded(
+                                                        flex: 1,
+                                                        child: Container(
+                                                            color:
+                                                                Colors.green)),
+                                                    Expanded(
+                                                        flex: 1,
+                                                        child: Container(
+                                                            color:
+                                                                Colors.yellow))
+                                                  ],
+                                                ),
+                                              )
+                                            ],
+                                          ))
+                                    ],
+                                  ),
+                                )),
+                            Expanded(
+                                flex: 1, child: Container(color: Colors.black)),
+                            Expanded(
+                                flex: 1,
+                                child: Container(color: Colors.yellow)),
+                            Expanded(
+                                flex: 1, child: Container(color: Colors.white)),
+                          ],
+                        ))
+                      ],
+                    )),
               ),
               Expanded(
                 flex: 2,
@@ -65,7 +150,17 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-        ),
+          Positioned(
+              left: customWidth / 8,
+              top: customHeight / 2,
+              child: Container(
+                width: customWidth / 3,
+                height: customHeight / 6,
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                ),
+              ))
+        ])),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           child: const Icon(Icons.arrow_right),
